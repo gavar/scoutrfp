@@ -1,0 +1,15 @@
+{
+  "name": "scoutrfp",
+  "version": "1.0.0",
+  "description": "Scout RFP Interview App",
+  "main": "index.js",
+  "repository": "git@github.com:gavar/scoutrfp.git",
+  "author": "Max Stankevich <max.stankevich.me@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
