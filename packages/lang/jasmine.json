@@ -1,0 +1,8 @@
+{
+  "spec_files": [
+    "**/*[sS]pec.[tj]s"
+  ],
+  "helpers": [
+    "jasmine.js"
+  ]
+}

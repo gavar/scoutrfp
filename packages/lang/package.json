@@ -1,0 +1,17 @@
+{
+  "name": "@gavar/lang",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Max Stankevich <max.stankevich.me@gmail.com>",
+  "description": "Provides types and methods that are fundamental to the design of the TypeScript language.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jasmine --config=jasmine.json"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.3.0",
+    "jasmine": "^3.3.0",
+    "ts-node": "^7.0.1"
+  }
+}
