@@ -200,3 +200,7 @@ dist/
 
 ## other
 \#*
+
+
+### Intellij ###
+!.idea/**/dictionaries
