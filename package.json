@@ -7,10 +7,9 @@
   "author": "Max Stankevich <max.stankevich.me@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server --hot"
   },
   "devDependencies": {
     "@types/node": "^10.12.11",
@@ -18,5 +17,10 @@
     "tsconfig-paths": "^3.7.0",
     "tslib": "^1.9.3",
     "typescript": "^3.2.1"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   }
 }

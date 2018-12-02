@@ -195,5 +195,8 @@ typings/
 yarn.lock
 package-lock.json
 
+## distribution
+dist/
+
 ## other
 \#*
