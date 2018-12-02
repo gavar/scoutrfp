@@ -1,0 +1,9 @@
+{
+  "name": "@gavar/logger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Max Stankevich <max.stankevich.me@gmail.com>",
+  "description": "Serves as a simple facade or abstraction for various logging frameworks.",
+  "license": "MIT",
+  "private": true
+}
