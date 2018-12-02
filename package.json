@@ -11,5 +11,12 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.11",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.1"
   }
 }

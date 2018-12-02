@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "keyofStringsOnly": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    "outDir": "out",
+    "preserveConstEnums": true,
+    "pretty": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "target": "esnext",
+    "paths": {
+      "$*": [
+        "packages/*",
+        "src/*"
+      ],
+      "~*": [
+        "node_modules/@types/*",
+        "node_modules/*"
+      ]
+    }
+  },
+  "exclude": [
+    "**/#*", // all files where names starts with #
+    "**/out", // all 'out' directories
+    "**/tmp", // all 'tmp' directories
+    "**/dist" // all 'dist' directories
+  ]
+}
