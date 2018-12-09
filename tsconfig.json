@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
+    "jsx": "react",
     "keyofStringsOnly": true,
     "module": "commonjs",
     "moduleResolution": "node",
