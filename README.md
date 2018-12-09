@@ -11,5 +11,5 @@ Create application using data from https://api.exchangeratesapi.io/latest
 - Application parts should be tested
 - React framework
 - Application state management using Redux or GraphQL client-side framework
-- Pagination and styling is not necessary, table of exhange rates will be good enough
+- Pagination and styling is not necessary, table of exchange rates will be good enough
 - Code should be pushed to remote GIT repository for review
