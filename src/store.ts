@@ -6,12 +6,6 @@ import { StateType } from "typesafe-actions";
 import { configureContext, Context } from "./context";
 import { configureReducer, ReducerType } from "./reducer";
 
-declare const module: {
-  hot: any;
-};
-
-const PRODUCTION = process.env.NODE_ENV === "production";
-
 /** Default application store state type definition. */
 export type StoreState = StateType<ReducerType>;
 
@@ -33,11 +27,5 @@ export function configureStore(initialState?: DeepPartial<StoreState>) {
 
   const reducer = configureReducer();
   const store = createStore(reducer, initialState, composedEnhancers);
-
-  if (!PRODUCTION && module.hot) {
-    console.warn("HOT REDUCER REPLACEMENT");
-    module.hot.accept(() => store.replaceReducer(reducer));
-  }
-
   return store;
 }

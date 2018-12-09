@@ -1,12 +1,14 @@
 import { App } from "$/containers";
 import React from "react";
 import { Provider } from "react-redux";
-import { configureStore } from "./store";
+import { Store } from "redux";
 
-const store = configureStore();
+export interface EntryProps {
+  store: Store,
+}
 
 /** Application entry point. */
-export function Entry() {
+export function Entry({store}: EntryProps) {
   return <Provider store={store}>
     <App/>
   </Provider>;
