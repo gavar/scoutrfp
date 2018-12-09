@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
 function stateToProps(state: StoreState) {
-  const {exchange} = state;
-  const {latest} = exchange;
-  const {fetching} = latest;
+  const {fetching} = state.exchange.latest;
   return {
     fetching,
   };

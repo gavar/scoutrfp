@@ -1,8 +1,9 @@
+import { CurrencyCode } from "$/api";
 import { FetchButtonConnect } from "$/connect";
-import { createStyles, Paper, Theme, Typography, WithStyles } from "@material-ui/core";
+import { StoreState } from "$/store";
+import { createStyles, Paper, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withStyles } from "~@material-ui/core";
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -21,20 +22,31 @@ const styles = (theme: Theme) => createStyles({
 });
 
 export interface HeaderProps extends WithStyles<typeof styles> {
-
+  base: CurrencyCode,
 }
 
 export class HeaderView extends Component<HeaderProps> {
 
   render() {
-    const {classes} = this.props;
+    const {classes, base} = this.props;
     return <Paper component="header" className={classes.root}>
       <Typography variant="headline" align="center" className={classes.title}>
-        Exchange Rates
+        Exchange Rate
       </Typography>
+
+      <Typography variant="subheading" align="center" className={classes.title}>
+        Base Currency: <b>{base}</b>
+      </Typography>
+
       <FetchButtonConnect className={classes.fetch}/>
     </Paper>;
   }
 }
 
-export const Header = connect()(withStyles(styles)(HeaderView));
+function stateToProps(state: StoreState) {
+  const {base} = state.exchange.latest;
+  return {base};
+}
+
+export const Header = connect(stateToProps)
+(withStyles(styles)(HeaderView));
