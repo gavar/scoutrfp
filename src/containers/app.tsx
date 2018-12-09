@@ -7,7 +7,7 @@ export interface AppProps extends DispatchProp {
 
 }
 
-export class App extends Component<AppProps> {
+export class AppView extends Component<AppProps> {
 
   componentDidMount(): void {
     const {dispatch} = this.props;
@@ -21,4 +21,4 @@ export class App extends Component<AppProps> {
   }
 }
 
-export default connect()(App);
+export const App = connect()(AppView);
