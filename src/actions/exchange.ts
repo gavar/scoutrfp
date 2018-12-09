@@ -31,7 +31,7 @@ export namespace exchange {
      * @param error - error if something went wrong.
      */
     export function receive(latest: Latest, error?: Error) {
-      return action(receive, error ? {latest, error} : {latest});
+      return action(receive, {latest, error});
     }
 
     /**

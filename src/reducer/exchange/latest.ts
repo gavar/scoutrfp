@@ -15,8 +15,8 @@ function receive(state: LatestState, action: exchange.latest.ReceiveAction): Lat
   const {latest} = action;
   state = {...state, ...latest};
   state.fetching = false;
-  if (latest.error) {
-    state.error = latest.error;
+  if (action.error) {
+    state.error = action.error;
   } else {
     state.error = null;
     state.rates = ratesToArray(latest);
