@@ -1,7 +1,9 @@
 import { exchange } from "$/actions";
 import { RatesTableConnect } from "$/connect";
+import { Paper } from "@material-ui/core";
 import React, { Component } from "react";
 import { connect, DispatchProp } from "react-redux";
+import { Header } from "./header";
 
 export interface AppProps extends DispatchProp {
 
@@ -15,9 +17,10 @@ export class AppView extends Component<AppProps> {
   }
 
   render() {
-    return <div className="app">
+    return <Paper>
+      <Header/>
       <RatesTableConnect/>
-    </div>;
+    </Paper>;
   }
 }
 
