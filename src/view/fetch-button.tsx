@@ -4,9 +4,10 @@ import React, { MouseEventHandler } from "react";
 
 const styles = (theme: Theme) => createStyles({
   root: {
-    width: 100,
+    width: 150,
   },
   progress: {
+    marginLeft: theme.spacing.unit * 2,
     color: theme.palette.primary.contrastText,
   },
 });
@@ -20,11 +21,13 @@ export interface FetchButtonProps extends WithStyles<typeof styles> {
 export function FetchButtonView(props: FetchButtonProps) {
   const {classes, fetching, onClick} = props;
   const className = classNames(classes.root, props.className);
-  const content = fetching ? <CircularProgress
-    className={classes.progress}
-    variant="indeterminate"
-    size={20}
-  /> : "Refresh";
+  const content = fetching ? [
+    "Loading",
+    <CircularProgress
+      className={classes.progress}
+      variant="indeterminate"
+      size={20}
+    />] : "Refresh";
 
   return <Button
     mini={true}
