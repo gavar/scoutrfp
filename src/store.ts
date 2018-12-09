@@ -6,6 +6,9 @@ import { StateType } from "typesafe-actions";
 import { configureContext, Context } from "./context";
 import { configureReducer, ReducerType } from "./reducer";
 
+const PRODUCTION = process.env.NODE_ENV === "production";
+const DEVELOPMENT = !PRODUCTION;
+
 /** Default application store state type definition. */
 export type StoreState = StateType<ReducerType>;
 
@@ -17,11 +20,12 @@ export type StoreState = StateType<ReducerType>;
  */
 export function configureStore(initialState?: DeepPartial<StoreState>) {
   const context = configureContext();
-  const middlewareEnhancer = applyMiddleware(
-    createLogger(),
+  const middleware = [
+    DEVELOPMENT && createLogger(),
     thunk.withExtraArgument(context),
-  );
+  ].filter(x => x);
 
+  const middlewareEnhancer = applyMiddleware(...middleware);
   const enhancers = [middlewareEnhancer];
   const composedEnhancers = composeWithDevTools(...enhancers);
 
