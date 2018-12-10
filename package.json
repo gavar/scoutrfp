@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "serve": "webpack-dev-server --hot"
+    "serve": "webpack-dev-server --hot",
+    "test": "node jasmine.config.js"
   },
   "dependencies": {
     "@material-ui/core": "^3.6.1",
@@ -24,15 +25,29 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
+    "@types/expect": "*",
+    "@types/jasmine": "*",
+    "@types/jsdom": "*",
     "@types/node": "^10.12.11",
     "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^6.0.10",
     "@types/redux-logger": "^3.0.6",
+    "@types/yargs": "*",
+    "core-js": "*",
+    "expect": "*",
+    "jasmine": "*",
+    "jasmine-console-reporter": "*",
+    "jest-dom": "*",
+    "jsdom": "*",
+    "node-fetch": "*",
+    "raf": "*",
+    "react-testing-library": "*",
     "redux-devtools-extension": "^2.13.7",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.7.0",
     "tslib": "^1.9.3",
-    "typescript": "^3.2.1"
+    "typescript": "^3.2.1",
+    "yargs": "*"
   },
   "workspaces": {
     "packages": [
