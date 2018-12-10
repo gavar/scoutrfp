@@ -24,7 +24,7 @@ export function FetchButton(props: FetchButtonProps) {
   const content = fetching ? [
     "Loading",
     <CircularProgress
-      key="1"
+      key="progress"
       className={classes.progress}
       variant="indeterminate"
       size={20}
