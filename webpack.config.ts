@@ -15,6 +15,10 @@ export = WebpackContext.boot(function (context: WebpackContext) {
       path: join(root, "dist"),
       filename: isDevServer ? "[name].[hash:8].js" : "[name].[contenthash:8].js",
     },
+    html: {
+      title: "Scout RFP",
+      favicon: "assets/favicon.ico",
+    },
   };
 
   context.extension(TsPreset, options);
