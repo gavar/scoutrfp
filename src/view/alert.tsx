@@ -26,7 +26,7 @@ export interface AlertProps extends WithStyles<typeof styles> {
   message: string,
 }
 
-export function AlertView(props: AlertProps) {
+export function Alert(props: AlertProps) {
   const {classes, heading, message} = props;
   return <div className={classes.root}>
     <ErrorIcon className={classes.icon} fontSize="small"/>
@@ -39,4 +39,4 @@ export function AlertView(props: AlertProps) {
   </div>;
 }
 
-export const Alert = withStyles(styles)(AlertView);
+export const AlertStyled = withStyles(styles)(Alert);

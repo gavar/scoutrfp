@@ -1,4 +1,4 @@
-import { App } from "$/containers";
+import { AppConnect } from "$/containers";
 import React from "react";
 import { Provider } from "react-redux";
 import { Store } from "redux";
@@ -10,6 +10,6 @@ export interface EntryProps {
 /** Application entry point. */
 export function Entry({store}: EntryProps) {
   return <Provider store={store}>
-    <App/>
+    <AppConnect/>
   </Provider>;
 }

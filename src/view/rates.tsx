@@ -3,7 +3,7 @@ import { Rate } from "$/state";
 import { createStyles, Paper, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
 import classNames from "classnames";
 import React from "react";
-import { Alert } from "./alert";
+import { AlertStyled } from "./alert";
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -40,11 +40,11 @@ export interface RatesTableProps extends WithStyles<typeof styles> {
   error?: Error;
 }
 
-setDefaultProps(RatesView, {
+setDefaultProps(Rates, {
   rates: [],
 });
 
-function RatesView(props: RatesTableProps) {
+function Rates(props: RatesTableProps) {
   const {classes} = props;
   const content = RatesContent(props);
   return <Paper className={classes.root}>
@@ -57,18 +57,18 @@ function RatesContent(props: RatesTableProps) {
 
   const status = <div className={classes.status}>
     {fetching && <Typography> Loading exchange rates... </Typography>}
-    {error && <Alert
+    {error && <AlertStyled
       heading="Error while fetching exchange rates!"
       message={error.message}/>}
   </div>;
 
   return [
     status,
-    ...RateGrid(props),
+    ...RatesGrid(props),
   ];
 }
 
-function RateGrid(props: RatesTableProps) {
+function RatesGrid(props: RatesTableProps) {
   const {classes, rates, updatedAt} = props;
   const time = updatedAt &&
     <Typography key="time">
@@ -101,4 +101,4 @@ function RateItem(this: RatesTableProps, props: Rate) {
   </div>;
 }
 
-export const Rates = withStyles(styles)(RatesView);
+export const RatesStyled = withStyles(styles)(Rates);

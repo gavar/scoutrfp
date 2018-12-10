@@ -1,5 +1,5 @@
 import { StoreState } from "$/store";
-import { FetchButton } from "$/view";
+import { FetchButtonStyled } from "$/view";
 import { exchange } from "$actions";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
@@ -20,4 +20,4 @@ function dispatchToProps(dispatch: Dispatch) {
 export const FetchButtonConnect = connect(
   stateToProps,
   dispatchToProps,
-)(FetchButton);
+)(FetchButtonStyled);

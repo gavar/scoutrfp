@@ -1,5 +1,5 @@
 import { StoreState } from "$/store";
-import { Rates } from "$/view";
+import { RatesStyled } from "$/view";
 import { connect } from "react-redux";
 
 function stateToProps(state: StoreState) {
@@ -7,4 +7,4 @@ function stateToProps(state: StoreState) {
   return {fetching, rates, error, updatedAt};
 }
 
-export const RatesConnect = connect(stateToProps)(Rates);
+export const RatesConnect = connect(stateToProps)(RatesStyled);

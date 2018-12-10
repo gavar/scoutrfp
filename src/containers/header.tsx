@@ -25,7 +25,7 @@ export interface HeaderProps extends WithStyles<typeof styles> {
   base: CurrencyCode,
 }
 
-export class HeaderView extends Component<HeaderProps> {
+export class Header extends Component<HeaderProps> {
 
   render() {
     const {classes, base} = this.props;
@@ -48,5 +48,5 @@ function stateToProps(state: StoreState) {
   return {base};
 }
 
-export const Header = connect(stateToProps)
-(withStyles(styles)(HeaderView));
+const HeaderStyled = withStyles(styles)(Header);
+export const HeaderConnect = connect(stateToProps)(HeaderStyled);

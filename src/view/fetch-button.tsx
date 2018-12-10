@@ -18,7 +18,7 @@ export interface FetchButtonProps extends WithStyles<typeof styles> {
   fetching?: boolean;
 }
 
-export function FetchButtonView(props: FetchButtonProps) {
+export function FetchButton(props: FetchButtonProps) {
   const {classes, fetching, onClick} = props;
   const className = classNames(classes.root, props.className);
   const content = fetching ? [
@@ -40,4 +40,4 @@ export function FetchButtonView(props: FetchButtonProps) {
   </Button>;
 }
 
-export const FetchButton = withStyles(styles)(FetchButtonView);
+export const FetchButtonStyled = withStyles(styles)(FetchButton);

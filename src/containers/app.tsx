@@ -3,13 +3,13 @@ import { RatesConnect } from "$/connect";
 import { Paper } from "@material-ui/core";
 import React, { Component } from "react";
 import { connect, DispatchProp } from "react-redux";
-import { Header } from "./header";
+import { HeaderConnect } from "./header";
 
 export interface AppProps extends DispatchProp {
 
 }
 
-export class AppView extends Component<AppProps> {
+export class App extends Component<AppProps> {
 
   componentDidMount(): void {
     const {dispatch} = this.props;
@@ -18,10 +18,10 @@ export class AppView extends Component<AppProps> {
 
   render() {
     return <Paper>
-      <Header/>
+      <HeaderConnect/>
       <RatesConnect/>
     </Paper>;
   }
 }
 
-export const App = connect()(AppView);
+export const AppConnect = connect()(App);
