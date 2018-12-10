@@ -2,7 +2,7 @@ import { setDefaultProps } from "$/core";
 import { Rate } from "$/state";
 import { createStyles, Paper, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
 import classNames from "classnames";
-import React from "react";
+import React, { Fragment } from "react";
 import { AlertStyled } from "./alert";
 
 const styles = (theme: Theme) => createStyles({
@@ -60,10 +60,10 @@ function RatesContent(props: RatesTableProps) {
     {RatesStatusContent(props)}
   </div>;
 
-  return [
-    status,
-    ...RatesGrid(props),
-  ];
+  return <Fragment>
+    {status}
+    {RatesGrid(props)},
+  </Fragment>;
 }
 
 function RatesStatusContent(props: RatesTableProps) {
@@ -100,7 +100,10 @@ function RatesGrid(props: RatesTableProps) {
       {rates.map(RateItem, props)}
     </div>;
 
-  return [time, items];
+  return <Fragment>
+    {time}
+    {items}
+  </Fragment>;
 }
 
 function RateItem(this: RatesTableProps, props: Rate) {
