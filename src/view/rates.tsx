@@ -93,12 +93,12 @@ function RatesGrid(props: RatesTableProps) {
   const time = updatedAt &&
     <Typography key="time">
       {updatedAt.toLocaleString("UK")}
-    </Typography>;
+    </Typography> || null;
 
   const items = rates && rates.length &&
     <div key="items" className={classes.grid}>
       {rates.map(RateItem, props)}
-    </div>;
+    </div> || null;
 
   return <Fragment>
     {time}
