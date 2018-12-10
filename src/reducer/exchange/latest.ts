@@ -19,6 +19,7 @@ function receive(state: LatestState, action: exchange.latest.ReceiveAction): Lat
     state.error = action.error;
   } else {
     state.error = null;
+    state.updatedAt = new Date();
     state.rates = ratesToArray(latest);
   }
 
@@ -39,6 +40,7 @@ export default function (state: LatestState, action: Action): LatestState {
   state = state || {
     base: "",
     rates: [],
+    updatedAt: null,
     fetching: false,
   };
 

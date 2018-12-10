@@ -22,6 +22,8 @@ export interface LatestState {
   rates: Rate[];
   /** Whether currently fetching latest state. */
   fetching: boolean;
+  /** Date when currency codes last time updated. */
+  updatedAt: Date,
   /** Fetching error. */
   error?: Error,
 }
