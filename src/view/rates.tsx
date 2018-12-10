@@ -16,6 +16,7 @@ const styles = (theme: Theme) => createStyles({
   },
   status: {
     minHeight: 24,
+    marginBottom: theme.spacing.unit,
   },
   item: {
     margin: theme.spacing.unit * .5,
@@ -53,19 +54,38 @@ function Rates(props: RatesTableProps) {
 }
 
 function RatesContent(props: RatesTableProps) {
-  const {classes, fetching, error} = props;
+  const {classes} = props;
 
   const status = <div className={classes.status}>
-    {fetching && <Typography> Loading exchange rates... </Typography>}
-    {error && <AlertStyled
-      heading="Error while fetching exchange rates!"
-      message={error.message}/>}
+    {RatesStatusContent(props)}
   </div>;
 
   return [
     status,
     ...RatesGrid(props),
   ];
+}
+
+function RatesStatusContent(props: RatesTableProps) {
+  const {fetching, rates, error} = props;
+  if (fetching)
+    return <Typography>
+      Loading exchange rates...
+    </Typography>;
+
+  if (error)
+    return <AlertStyled
+      heading="Error while fetching exchange rates!"
+      message={error.message}/>;
+
+  if (!rates || !rates.length)
+    return <Typography>
+      No exchange rates to show.
+    </Typography>;
+
+  return <Typography>
+    Latest exchange rates have been successfully fetched.
+  </Typography>;
 }
 
 function RatesGrid(props: RatesTableProps) {
@@ -75,13 +95,10 @@ function RatesGrid(props: RatesTableProps) {
       {updatedAt.toLocaleString("UK")}
     </Typography>;
 
-  const items = rates && rates.length ?
+  const items = rates && rates.length &&
     <div key="items" className={classes.grid}>
       {rates.map(RateItem, props)}
-    </div>
-    : <Typography key="items">
-      No exchange rates to show.
-    </Typography>;
+    </div>;
 
   return [time, items];
 }
