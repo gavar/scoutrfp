@@ -62,7 +62,7 @@ function RatesContent(props: RatesTableProps) {
 
   return <Fragment>
     {status}
-    {RatesGrid(props)},
+    {RatesGrid(props)}
   </Fragment>;
 }
 
