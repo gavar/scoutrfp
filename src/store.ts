@@ -6,8 +6,9 @@ import thunk from "redux-thunk";
 import { configureContext, Context } from "./context";
 import { configureReducer } from "./reducer";
 
+const TEST = process.env.NODE_ENV === "test";
 const PRODUCTION = process.env.NODE_ENV === "production";
-const DEVELOPMENT = !PRODUCTION;
+const DEVELOPMENT = !PRODUCTION && !TEST;
 
 /** Default application store state type definition. */
 export type StoreState = {
