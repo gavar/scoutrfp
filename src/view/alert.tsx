@@ -4,14 +4,17 @@ import React from "react";
 
 const styles = (theme: Theme) => createStyles({
   root: {
+    display: "flex",
+    flexFlow: "row wrap",
     opacity: 0.95,
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * .5,
     color: theme.palette.error.contrastText,
     backgroundColor: theme.palette.error.dark,
-    borderRadius: 12,
+    borderRadius: 4,
   },
-  heading: {
-    display: "flex",
+  heading: {},
+  message: {
+    width: "100%",
   },
   icon: {
     marginRight: theme.spacing.unit,
@@ -19,21 +22,19 @@ const styles = (theme: Theme) => createStyles({
 });
 
 export interface AlertProps extends WithStyles<typeof styles> {
-  error?: Error;
+  heading: string,
+  message: string,
 }
 
 export function AlertView(props: AlertProps) {
-  const {error, classes} = props;
+  const {classes, heading, message} = props;
   return <div className={classes.root}>
-    <div className={classes.heading}>
-      <ErrorIcon className={classes.icon}/>
-      <Typography component="span" variant="subheading" color="inherit">
-        Unable to fetch latest exchange rates!
-      </Typography>
-    </div>
-    <hr/>
-    <Typography color="inherit">
-      Error: {error.message}
+    <ErrorIcon className={classes.icon} fontSize="small"/>
+    <Typography className={classes.heading} component="span" color="inherit">
+      {heading}
+    </Typography>
+    <Typography className={classes.message} color="inherit">
+      {message}
     </Typography>
   </div>;
 }

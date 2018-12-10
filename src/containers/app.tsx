@@ -1,5 +1,5 @@
 import { exchange } from "$/actions";
-import { RatesTableConnect } from "$/connect";
+import { RatesConnect } from "$/connect";
 import { Paper } from "@material-ui/core";
 import React, { Component } from "react";
 import { connect, DispatchProp } from "react-redux";
@@ -19,7 +19,7 @@ export class AppView extends Component<AppProps> {
   render() {
     return <Paper>
       <Header/>
-      <RatesTableConnect/>
+      <RatesConnect/>
     </Paper>;
   }
 }

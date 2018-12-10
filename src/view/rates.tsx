@@ -7,10 +7,15 @@ import { Alert } from "./alert";
 
 const styles = (theme: Theme) => createStyles({
   root: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
     padding: theme.spacing.unit,
     backgroundColor: theme.palette.grey[50],
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+  },
+  status: {
+    minHeight: 24,
   },
   item: {
     margin: theme.spacing.unit * .5,
@@ -29,41 +34,59 @@ const styles = (theme: Theme) => createStyles({
 });
 
 export interface RatesTableProps extends WithStyles<typeof styles> {
-  error?: Error;
-  rates: Rate[];
   fetching: boolean;
+  updatedAt: Date,
+  rates: Rate[];
+  error?: Error;
 }
 
-setDefaultProps(RatesTableView, {
+setDefaultProps(RatesView, {
   rates: [],
 });
 
-function RatesTableView(props: RatesTableProps) {
+function RatesView(props: RatesTableProps) {
   const {classes} = props;
-  const content = RatesTableContent(props);
+  const content = RatesContent(props);
   return <Paper className={classes.root}>
     {content}
   </Paper>;
 }
 
-function RatesTableContent(props: RatesTableProps) {
-  const {error, rates, fetching} = props;
-  if (error)
-    return <Alert error={error}/>;
+function RatesContent(props: RatesTableProps) {
+  const {classes, fetching, error} = props;
 
-  if (fetching) return <Typography>
-    Loading exchange rates...
-  </Typography>;
+  const status = <div className={classes.status}>
+    {fetching && <Typography> Loading exchange rates... </Typography>}
+    {error && <Alert
+      heading="Error while fetching exchange rates!"
+      message={error.message}/>}
+  </div>;
 
-  if (rates && rates.length > 0)
-    return rates.map(RatesTableRow, props);
-
-  return <Typography>
-    No exchange rates to show.
-  </Typography>;
+  return [
+    status,
+    ...RateGrid(props),
+  ];
 }
 
-function RatesTableRow(this: RatesTableProps, props: Rate) {
+function RateGrid(props: RatesTableProps) {
+  const {classes, rates, updatedAt} = props;
+  const time = updatedAt &&
+    <Typography key="time">
+      {updatedAt.toLocaleString("UK")}
+    </Typography>;
+
+  const items = rates && rates.length ?
+    <div key="items" className={classes.grid}>
+      {rates.map(RateItem, props)}
+    </div>
+    : <Typography key="items">
+      No exchange rates to show.
+    </Typography>;
+
+  return [time, items];
+}
+
+function RateItem(this: RatesTableProps, props: Rate) {
   const {classes} = this;
   const {quote, rate} = props;
   const className = classNames(classes.item);
@@ -78,4 +101,4 @@ function RatesTableRow(this: RatesTableProps, props: Rate) {
   </div>;
 }
 
-export const RatesTable = withStyles(styles)(RatesTableView);
+export const Rates = withStyles(styles)(RatesView);

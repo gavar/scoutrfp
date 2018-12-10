@@ -1,2 +1,2 @@
-export * from "./rates-table-connect";
+export * from "./rates-connect";
 export * from "./fetch-button-connect";
