@@ -1,10 +1,9 @@
 import fs from "fs";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { Importer, Options as SassOptions } from "node-sass";
+import { Importer, ImporterReturnType, Options as SassOptions } from "node-sass";
 import path, { join } from "path";
 import postcssPresetEnv from "postcss-preset-env";
-import { ImporterReturnType } from "~node-sass";
-import { RuleSetRule } from "~webpack";
+import { RuleSetRule } from "webpack";
 
 /** Default options for 'sass-loader'. */
 interface SassOptionsDefaults extends SassOptions {

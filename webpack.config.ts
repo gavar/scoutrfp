@@ -1,6 +1,6 @@
 require("tsconfig-paths/register");
 
-import { TsPreset, TsPresetOptions, WebpackContext } from "$webpack";
+import { TsPreset, TsPresetOptions, WebpackContext } from "$/webpack";
 import { join } from "path";
 
 const resolve = require.resolve;

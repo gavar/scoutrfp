@@ -1,4 +1,4 @@
-import { Abstract, isFunction, isString, Newable } from "$lang";
+import { Abstract, isFunction, isString, Newable } from "$/lang";
 import { Logger } from "./logger";
 
 /**

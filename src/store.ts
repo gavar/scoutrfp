@@ -1,4 +1,4 @@
-import { LatestState } from "$state";
+import { LatestState } from "$/state";
 import { applyMiddleware, createStore, DeepPartial } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";

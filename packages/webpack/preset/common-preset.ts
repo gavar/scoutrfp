@@ -1,8 +1,8 @@
-import { DevServerOptions } from "$webpack/configurer/dev-server-configurer";
+import { DevServerOptions } from "$/webpack";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import path from "path";
+import { EnvironmentPlugin } from "webpack";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import { EnvironmentPlugin } from "~webpack";
 import { DevServerConfigurer, DotEnvConfigurer, DotEnvOptions } from "../configurer";
 import { WebpackContext, WebpackExtension, WebpackExtensionOptions } from "../core";
 

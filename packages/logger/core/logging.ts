@@ -1,5 +1,6 @@
-import { Abstract } from "$lang";
-import { Logger, LoggerFactory } from "$logger";
+import { Abstract } from "$/lang";
+import { Logger } from "./logger";
+import { LoggerFactory } from "./logger-factory";
 import defineProperty = Reflect.defineProperty;
 import getPrototypeOf = Reflect.getPrototypeOf;
 

@@ -1,4 +1,4 @@
-import { Entry, Output } from "~webpack";
+import { Entry, Output } from "webpack";
 import {
   HtmlConfigurer,
   HtmlOptions,

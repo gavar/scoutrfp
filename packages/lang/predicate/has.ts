@@ -1,4 +1,4 @@
-import { isFunction } from "$lang";
+import { isFunction } from "$/lang";
 
 /***
  * Whether the target object has own property by a given key.

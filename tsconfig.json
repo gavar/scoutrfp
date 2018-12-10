@@ -21,11 +21,11 @@
     "sourceMap": true,
     "target": "esnext",
     "paths": {
-      "$*": [
+      "$/*": [
         "packages/*",
         "src/*"
       ],
-      "~*": [
+      "~/*": [
         "node_modules/@types/*",
         "node_modules/*"
       ]

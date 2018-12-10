@@ -1,6 +1,6 @@
+import { exchange } from "$/actions";
 import { StoreState } from "$/store";
 import { FetchButtonStyled } from "$/view";
-import { exchange } from "$actions";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 

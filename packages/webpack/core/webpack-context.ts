@@ -1,8 +1,7 @@
-import { isFunction, Newable, Type, TypeDef } from "$lang";
-import { Logger, logging } from "$logger";
-import { Configuration } from "webpack";
-import { Tapable } from "~tapable";
-import { Entry, Output, ResolvePlugin, RuleSetRule } from "~webpack";
+import { isFunction, Newable, Type, TypeDef } from "$/lang";
+import { Logger, logging } from "$/logger";
+import { Tapable } from "tapable";
+import { Configuration, Entry, Output, ResolvePlugin, RuleSetRule } from "webpack";
 import { WebpackArgv } from "./webpack-argv";
 import { WebpackEnv } from "./webpack-env";
 import { WebpackExtension } from "./webpack-extension";

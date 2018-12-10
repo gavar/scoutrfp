@@ -1,6 +1,6 @@
-import { configureStore } from "$store";
 import React from "react";
 import { render } from "react-dom";
+import { configureStore } from "./store";
 
 declare const module: {
   hot: any;
