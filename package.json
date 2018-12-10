@@ -10,7 +10,12 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server --hot",
-    "test": "node jasmine.config.js"
+    "test": "node jasmine.config.js",
+    "deploy": "gh-pages-deploy"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "noprompt": false
   },
   "dependencies": {
     "@material-ui/core": "^3.6.1",
@@ -35,6 +40,7 @@
     "@types/yargs": "*",
     "core-js": "*",
     "expect": "*",
+    "gh-pages-deploy": "^0.4.2",
     "jasmine": "*",
     "jasmine-console-reporter": "*",
     "jest-dom": "*",
