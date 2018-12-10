@@ -3,8 +3,8 @@ import { RatesTable } from "$/view";
 import { connect } from "react-redux";
 
 function stateToProps(state: StoreState) {
-  const {rates} = state.exchange.latest;
-  return {rates};
+  const {fetching, rates, error} = state.exchange.latest;
+  return {fetching, rates, error};
 }
 
 export const RatesTableConnect = connect(stateToProps)(RatesTable);

@@ -1,8 +1,9 @@
 import { setDefaultProps } from "$/core";
 import { Rate } from "$/state";
-import { createStyles, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, Paper, Theme, Typography, WithStyles, withStyles } from "@material-ui/core";
 import classNames from "classnames";
 import React from "react";
+import { Alert } from "./alert";
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -28,7 +29,9 @@ const styles = (theme: Theme) => createStyles({
 });
 
 export interface RatesTableProps extends WithStyles<typeof styles> {
+  error?: Error;
   rates: Rate[];
+  fetching: boolean;
 }
 
 setDefaultProps(RatesTableView, {
@@ -36,13 +39,28 @@ setDefaultProps(RatesTableView, {
 });
 
 function RatesTableView(props: RatesTableProps) {
-  const {classes, rates} = props;
-  const rows = rates.map(RatesTableRow, props);
+  const {classes} = props;
+  const content = RatesTableContent(props);
+  return <Paper className={classes.root}>
+    {content}
+  </Paper>;
+}
 
-  return <div className={classes.root}>
-    {rows}
-  </div>;
+function RatesTableContent(props: RatesTableProps) {
+  const {error, rates, fetching} = props;
+  if (error)
+    return <Alert error={error}/>;
 
+  if (fetching) return <Typography>
+    Loading exchange rates...
+  </Typography>;
+
+  if (rates && rates.length > 0)
+    return rates.map(RatesTableRow, props);
+
+  return <Typography>
+    No exchange rates to show.
+  </Typography>;
 }
 
 function RatesTableRow(this: RatesTableProps, props: Rate) {
