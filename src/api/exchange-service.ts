@@ -16,6 +16,10 @@ export class ExchangeService {
 
   protected async fetch(url: string, options?: RequestInit): Promise<Response> {
     const uri = new URL(url, this.baseUrl);
-    return await fetch(uri.toString(), options);
+    const res = await fetch(uri.toString(), options);
+    if (res.ok) return res;
+    const {status} = res;
+    const body = await res.json();
+    throw new Error(`${status}: ${body.error}`);
   }
 }
