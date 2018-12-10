@@ -1,16 +1,20 @@
+import { LatestState } from "$state";
 import { applyMiddleware, createStore, DeepPartial } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
-import { StateType } from "typesafe-actions";
 import { configureContext, Context } from "./context";
-import { configureReducer, ReducerType } from "./reducer";
+import { configureReducer } from "./reducer";
 
 const PRODUCTION = process.env.NODE_ENV === "production";
 const DEVELOPMENT = !PRODUCTION;
 
 /** Default application store state type definition. */
-export type StoreState = StateType<ReducerType>;
+export type StoreState = {
+  exchange: {
+    latest: LatestState,
+  }
+};
 
 /**
  * Create and configure application state store.

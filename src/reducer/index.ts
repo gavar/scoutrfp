@@ -9,6 +9,3 @@ export function configureReducer() {
     exchange,
   });
 }
-
-/** Application state reducer type. */
-export type ReducerType = ReturnType<typeof configureReducer>;
