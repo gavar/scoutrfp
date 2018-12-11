@@ -4,7 +4,7 @@ import { isAction } from "$/core";
 import { LatestState, Rate } from "$/state";
 import { Action } from "redux";
 
-function requesting(state: LatestState, action: exchange.latest.RequestingAction): LatestState {
+function requesting(state: LatestState, action: exchange.latest.IsFetchingAction): LatestState {
   state = {...state};
   state.error = null;
   state.fetching = true;

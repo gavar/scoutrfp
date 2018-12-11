@@ -13,7 +13,8 @@ export namespace exchange {
     // define types
     export type LatestStateRef = () => LatestState;
     export type ReceiveAction = ActionType<typeof receive>
-    export type RequestingAction = ActionType<typeof isFetching>;
+    export type IsFetchingAction = ActionType<typeof isFetching>;
+    export type FetchAction = ActionType<typeof fetch>;
 
     // set action types
     autoCreatorType(fetch, scope);
