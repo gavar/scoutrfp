@@ -41,7 +41,7 @@ export namespace exchange {
      */
     export function fetch(force?: boolean) {
       return action(fetch, async function (dispatch: Dispatch, stateRef: LatestStateRef, context: Context) {
-        if (force || shouldFetch(stateRef())) {
+        if (shouldFetch(stateRef(), force)) {
           dispatch(isFetching());
           try {
             const {exchange} = context;
@@ -55,9 +55,11 @@ export namespace exchange {
       });
     }
 
-    function shouldFetch(state: LatestState) {
+    function shouldFetch(state: LatestState, force: boolean) {
       if (!state) return true;
       if (state.fetching) return false;
+      if (force) return true;
+      if (state.rates && state.rates.length) return false;
       return true;
     }
   }
