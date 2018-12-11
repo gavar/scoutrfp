@@ -49,5 +49,6 @@ export function action<A extends Action, P>(creator: ActionCreator<A>, params?: 
  * @param creator - action creator.
  */
 export function isAction<A extends Action>(action: Action, creator: ActionCreator<A>): action is A {
-  return action.type === creator.type;
+  return action && creator
+    && action.type === creator.type;
 }
