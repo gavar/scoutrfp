@@ -18,6 +18,7 @@ export = WebpackContext.boot(function (context: WebpackContext) {
     html: {
       title: "Scout RFP",
       favicon: "assets/favicon.ico",
+      template: join(root, "src/index.html"),
     },
   };
 
