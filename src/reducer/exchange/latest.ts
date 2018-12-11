@@ -12,12 +12,13 @@ function requesting(state: LatestState, action: exchange.latest.IsFetchingAction
 }
 
 function receive(state: LatestState, action: exchange.latest.ReceiveAction): LatestState {
-  const {latest} = action;
-  state = {...state, ...latest};
+  const {latest, error} = action;
+  state = {...state};
   state.fetching = false;
-  if (action.error) {
-    state.error = action.error;
+  if (error) {
+    state.error = error;
   } else {
+    state = {...state, ...latest};
     state.error = null;
     state.updatedAt = new Date();
     state.rates = ratesToArray(latest);
@@ -42,6 +43,7 @@ export default function (state: LatestState, action: Action): LatestState {
     rates: [],
     updatedAt: null,
     fetching: false,
+    error: null,
   };
 
   if (isAction(action, exchange.latest.isFetching))
